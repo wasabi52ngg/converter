@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Конвертер валют
+{% endblock %}
+
+{% block content %}
+
+ <div class="container">
+        <h1 class="shadow-text">Конвертер валют</h1>
+        <form method="post">
+            {% csrf_token %}
+          <div class="form-group">
+            {{form.currency_from}}
+            {{form.amount}}
+            {{form.currency_to}}
+        </div>
+            <button type="submit">Конвертировать</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <p>Результат: {{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+
